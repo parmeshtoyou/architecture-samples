@@ -76,9 +76,8 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
-        enabledForTests = true
+    buildFeatures {
+        dataBinding = true
     }
 
     compileOptions {
@@ -144,7 +143,7 @@ dependencies {
     testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
     testImplementation "androidx.test:rules:$androidXTestRulesVersion"
     // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
-    implementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     implementation "androidx.test:core:$androidXTestCoreVersion"
     implementation "androidx.fragment:fragment:$fragmentVersion"
 
@@ -159,7 +158,8 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
     androidTestImplementation "org.robolectric:annotations:$robolectricVersion"
-    implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-web:$espressoVersion"
 
     // Resolve conflicts between main and test APK:
     androidTestImplementation "androidx.annotation:annotation:$androidXAnnotations"
@@ -167,6 +167,15 @@ dependencies {
     androidTestImplementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     androidTestImplementation "androidx.appcompat:appcompat:$appCompatVersion"
     androidTestImplementation "com.google.android.material:material:$materialVersion"
+
+   /* androidTestImplementation "com.android.support.test.espresso:espressocore:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espressocontrib:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espressointents:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso.idling:idlingconcurrent:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espressoidling-resource:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espressoweb:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espressoaccessibility:$rootProject.espressoVersion"
+*/
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
